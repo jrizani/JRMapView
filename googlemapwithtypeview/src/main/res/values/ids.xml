@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="layer_button" type="id"/>
+    <item name="map_type_chooser" type="id"/>
+    <item name="tv_map_type" type="id"/>
+    <item name="default_map" type="id"/>
+    <item name="satellite_map" type="id"/>
+    <item name="terrain_map" type="id"/>
+    <item name="default_text" type="id"/>
+    <item name="satellite_text" type="id"/>
+    <item name="terrain_text" type="id"/>
+    <item name="map" type="id"/>
+    <item name="map_image" type="id"/>
+    <item name="outer_space" type="id"/>
+</resources>

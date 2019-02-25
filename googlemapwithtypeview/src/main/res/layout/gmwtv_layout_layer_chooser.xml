@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/map_type_chooser"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/gmwtv_bg_my_location"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tv_map_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MAP TYPE"
+        android:textColor="@color/gmwtv_not_selected"
+        android:textSize="5pt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/default_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_map_type"
+        android:src="@drawable/gmwtv_map_default_selected" />
+
+    <ImageView
+        android:id="@+id/satellite_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@+id/default_map"
+        app:layout_constraintTop_toTopOf="@+id/default_map"
+        android:src="@drawable/gmwtv_map_satellite" />
+
+    <ImageView
+        android:id="@+id/terrain_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@+id/satellite_map"
+        app:layout_constraintTop_toTopOf="@+id/satellite_map"
+        android:src="@drawable/gmwtv_map_terrain" />
+
+    <TextView
+        android:id="@+id/default_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Default"
+        android:textColor="@color/gmwtv_selected"
+        android:textSize="4pt"
+        app:layout_constraintEnd_toEndOf="@+id/default_map"
+        app:layout_constraintStart_toStartOf="@+id/default_map"
+        app:layout_constraintTop_toBottomOf="@+id/default_map" />
+
+    <TextView
+        android:id="@+id/satellite_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Satellite"
+        android:textColor="@color/gmwtv_not_selected"
+        android:textSize="4pt"
+        app:layout_constraintEnd_toEndOf="@+id/satellite_map"
+        app:layout_constraintStart_toStartOf="@+id/satellite_map"
+        app:layout_constraintTop_toBottomOf="@+id/satellite_map" />
+
+    <TextView
+        android:id="@+id/terrain_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Terrain"
+        android:textColor="@color/gmwtv_not_selected"
+        android:textSize="4pt"
+        app:layout_constraintEnd_toEndOf="@+id/terrain_map"
+        app:layout_constraintStart_toStartOf="@+id/terrain_map"
+        app:layout_constraintTop_toBottomOf="@+id/terrain_map" />
+
+</android.support.constraint.ConstraintLayout>

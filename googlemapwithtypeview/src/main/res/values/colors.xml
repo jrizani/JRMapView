@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gmwtv_not_selected">#de000000</color>
+    <color name="gmwtv_selected">#1E88E5</color>
+</resources>
