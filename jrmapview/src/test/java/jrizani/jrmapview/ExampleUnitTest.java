@@ -1,4 +1,4 @@
-package jrizani.googlemapwithtypeview;
+package jrizani.jrmapview;
 
 import org.junit.Test;
 

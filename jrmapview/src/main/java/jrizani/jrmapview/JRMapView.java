@@ -1,9 +1,8 @@
-package jrizani.googlemapwithtypeview;
+package jrizani.jrmapview;
 
 import android.animation.LayoutTransition;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
 import android.support.v4.content.ContextCompat;
@@ -20,6 +19,8 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 
+import jrizani.JRMapView.R;
+
 /*=============================*/
 /*            AUTHOR           */
 /*          JULIAN NR          */
@@ -27,7 +28,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 /*         22 Feb 2019         */
 /*=============================*/
 
-public class GoogleMapView extends ConstraintLayout {
+public class JRMapView extends ConstraintLayout {
 
     private MapView mapView;
     private ImageView outerSpace;
@@ -46,27 +47,27 @@ public class GoogleMapView extends ConstraintLayout {
     private TextView terrainText;
     private int topPadding;
 
-    public GoogleMapView(Context context) {
+    public JRMapView(Context context) {
         super(context);
         init();
     }
 
-    public GoogleMapView(Context context, AttributeSet attrs) {
+    public JRMapView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public GoogleMapView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public JRMapView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
 
-    public GoogleMapView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public JRMapView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init();
     }
 
-    public void onCreate(@Nullable Bundle savedInstanceState, OnMapReadyCallback onMapReadyCallback) {
+    public void onCreate(Bundle savedInstanceState, OnMapReadyCallback onMapReadyCallback) {
         mapView.onCreate(savedInstanceState);
         mOnMapReadyCallback = onMapReadyCallback;
     }
@@ -276,17 +277,13 @@ public class GoogleMapView extends ConstraintLayout {
         terrainText = mapChooser.findViewById(R.id.terrain_text);
     }
 
-    private void applyConstraint() {
-        constraintSet.applyTo(this);
-    }
-
     private float dipToPixel(float dip) {
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip, getResources().getDisplayMetrics());
     }
 
-    public void setGoogleMapPadding(int left, int top, int right, int bottom){
+    public void setGoogleMapPadding(int left, int top, int right, int bottom) {
         topPadding = (int) (topPadding + dipToPixel(top));
-        mGoogleMap.setPadding((int) dipToPixel(4.5f + right), topPadding, (int) dipToPixel(4.5f + right), (int)dipToPixel(bottom));
+        mGoogleMap.setPadding((int) dipToPixel(4.5f + left), topPadding, (int) dipToPixel(4.5f + right), (int) dipToPixel(bottom));
         constraintSet.clone(this);
         constraintSet.connect(R.id.layer_button, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP, (int) dipToPixel(top + 16));
         constraintSet.connect(R.id.layer_button, ConstraintSet.RIGHT, ConstraintSet.PARENT_ID, ConstraintSet.RIGHT, (int) dipToPixel(right + 16));

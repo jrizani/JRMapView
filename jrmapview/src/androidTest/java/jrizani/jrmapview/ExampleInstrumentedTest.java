@@ -1,4 +1,4 @@
-package jrizani.googlemapwithtypeview;
+package jrizani.jrmapview;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("jrizani.googlemapwithtypeview", appContext.getPackageName());
+        assertEquals("jrizani.googlemapwithtypeview.test", appContext.getPackageName());
     }
 }
