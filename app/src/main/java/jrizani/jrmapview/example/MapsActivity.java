@@ -31,19 +31,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMapView = findViewById(R.id.googleView);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 123);
+        } else {
+            mMapView.onCreate(savedInstanceState, this);
+            mMapView.onResume();
         }
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (grantResults.length > 0
-                && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
             mMapView.onCreate(savedInstanceState, this);
             mMapView.onResume();
         } else {
-
+            finish();
         }
     }
 

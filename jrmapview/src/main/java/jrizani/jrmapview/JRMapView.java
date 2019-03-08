@@ -8,7 +8,6 @@ import android.support.constraint.ConstraintSet;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -45,7 +44,7 @@ public class JRMapView extends ConstraintLayout {
     private TextView defaultText;
     private TextView satelliteText;
     private TextView terrainText;
-    private int topPadding;
+    private int topPadding = 56;
 
     public JRMapView(Context context) {
         super(context);
@@ -218,7 +217,6 @@ public class JRMapView extends ConstraintLayout {
         layerButton.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.gmwtv_map_type));
 
         ViewCompat.setElevation(layerButton, 4);
-//        layerButton.setElevation(4);
 
         LayoutParams layoutParams = new LayoutParams(
                 LayoutParams.WRAP_CONTENT,
@@ -228,7 +226,7 @@ public class JRMapView extends ConstraintLayout {
         ImageView image = new ImageView(getContext());
         image.setImageResource(R.drawable.gmwtv_layers);
         image.setId(R.id.map_image);
-        layerButton.addView(image, (int) dipToPixel(24), (int) dipToPixel(24));
+        layerButton.addView(image, dipToPixel(23), dipToPixel(23));
 
         ConstraintSet imageConstraintSet = new ConstraintSet();
         imageConstraintSet.clone(layerButton);
@@ -241,9 +239,11 @@ public class JRMapView extends ConstraintLayout {
         addView(layerButton, 2, layoutParams);
 
         constraintSet.clone(this);
-        constraintSet.connect(R.id.layer_button, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP, (int) dipToPixel(16));
-        constraintSet.connect(R.id.layer_button, ConstraintSet.RIGHT, ConstraintSet.PARENT_ID, ConstraintSet.RIGHT, (int) dipToPixel(16));
+        constraintSet.connect(R.id.layer_button, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP, dipToPixel(56));
+        constraintSet.connect(R.id.layer_button, ConstraintSet.RIGHT, ConstraintSet.PARENT_ID, ConstraintSet.RIGHT, dipToPixel(12));
         constraintSet.applyTo(this);
+
+        ViewCompat.setElevation(layerButton, 4);
     }
 
     private void initMapType() {
@@ -263,8 +263,8 @@ public class JRMapView extends ConstraintLayout {
         mapChooser.setVisibility(GONE);
 
         constraintSet.clone(this);
-        constraintSet.connect(R.id.map_type_chooser, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP, (int) dipToPixel(16));
-        constraintSet.connect(R.id.map_type_chooser, ConstraintSet.RIGHT, ConstraintSet.PARENT_ID, ConstraintSet.RIGHT, (int) dipToPixel(16));
+        constraintSet.connect(R.id.map_type_chooser, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP, dipToPixel(56));
+        constraintSet.connect(R.id.map_type_chooser, ConstraintSet.RIGHT, ConstraintSet.PARENT_ID, ConstraintSet.RIGHT, dipToPixel(12));
         constraintSet.applyTo(this);
     }
 
@@ -277,25 +277,24 @@ public class JRMapView extends ConstraintLayout {
         terrainText = mapChooser.findViewById(R.id.terrain_text);
     }
 
-    private float dipToPixel(float dip) {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip, getResources().getDisplayMetrics());
+    private int dipToPixel(float dip) {
+        return (int) (dip * getContext().getResources().getDisplayMetrics().density + 0.5f);
+//        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip, getResources().getDisplayMetrics());
     }
 
     public void setGoogleMapPadding(int left, int top, int right, int bottom) {
-        topPadding = (int) (topPadding + dipToPixel(top));
-        mGoogleMap.setPadding((int) dipToPixel(4.5f + left), topPadding, (int) dipToPixel(4.5f + right), (int) dipToPixel(bottom));
+        topPadding = dipToPixel(topPadding) + top;
+        mGoogleMap.setPadding(left, top, right, bottom);
         constraintSet.clone(this);
-        constraintSet.connect(R.id.layer_button, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP, (int) dipToPixel(top + 16));
-        constraintSet.connect(R.id.layer_button, ConstraintSet.RIGHT, ConstraintSet.PARENT_ID, ConstraintSet.RIGHT, (int) dipToPixel(right + 16));
-        constraintSet.connect(R.id.map_type_chooser, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP, (int) dipToPixel(top + 16));
-        constraintSet.connect(R.id.map_type_chooser, ConstraintSet.RIGHT, ConstraintSet.PARENT_ID, ConstraintSet.RIGHT, (int) dipToPixel(right + 16));
+        constraintSet.connect(R.id.layer_button, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP, topPadding);
+        constraintSet.connect(R.id.layer_button, ConstraintSet.RIGHT, ConstraintSet.PARENT_ID, ConstraintSet.RIGHT, right + dipToPixel(12));
+        constraintSet.connect(R.id.map_type_chooser, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP, topPadding);
+        constraintSet.connect(R.id.map_type_chooser, ConstraintSet.RIGHT, ConstraintSet.PARENT_ID, ConstraintSet.RIGHT, right + dipToPixel(12));
         constraintSet.applyTo(this);
     }
 
     public void onMapReady(GoogleMap googleMap) {
         this.mGoogleMap = googleMap;
         setMapType(googleMap.getMapType());
-        topPadding = (int) (layerButton.getHeight() + dipToPixel(16));
-        googleMap.setPadding((int) dipToPixel(4.5f), topPadding, (int) dipToPixel(4.5f), 0);
     }
 }
