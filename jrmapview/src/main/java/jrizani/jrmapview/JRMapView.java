@@ -239,7 +239,7 @@ public class JRMapView extends ConstraintLayout {
         addView(layerButton, 2, layoutParams);
 
         constraintSet.clone(this);
-        constraintSet.connect(R.id.layer_button, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP, dipToPixel(56));
+        constraintSet.connect(R.id.layer_button, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP, dipToPixel(12));
         constraintSet.connect(R.id.layer_button, ConstraintSet.RIGHT, ConstraintSet.PARENT_ID, ConstraintSet.RIGHT, dipToPixel(12));
         constraintSet.applyTo(this);
 
@@ -263,7 +263,7 @@ public class JRMapView extends ConstraintLayout {
         mapChooser.setVisibility(GONE);
 
         constraintSet.clone(this);
-        constraintSet.connect(R.id.map_type_chooser, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP, dipToPixel(56));
+        constraintSet.connect(R.id.map_type_chooser, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP, dipToPixel(12));
         constraintSet.connect(R.id.map_type_chooser, ConstraintSet.RIGHT, ConstraintSet.PARENT_ID, ConstraintSet.RIGHT, dipToPixel(12));
         constraintSet.applyTo(this);
     }
@@ -296,5 +296,15 @@ public class JRMapView extends ConstraintLayout {
     public void onMapReady(GoogleMap googleMap) {
         this.mGoogleMap = googleMap;
         setMapType(googleMap.getMapType());
+
+        if (googleMap.isMyLocationEnabled()){
+            topPadding = 56;
+            constraintSet.clone(this);
+            constraintSet.connect(R.id.layer_button, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP, dipToPixel(56));
+            constraintSet.connect(R.id.layer_button, ConstraintSet.RIGHT, ConstraintSet.PARENT_ID, ConstraintSet.RIGHT, dipToPixel(12));
+            constraintSet.connect(R.id.map_type_chooser, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP, dipToPixel(56));
+            constraintSet.connect(R.id.map_type_chooser, ConstraintSet.RIGHT, ConstraintSet.PARENT_ID, ConstraintSet.RIGHT, dipToPixel(12));
+            constraintSet.applyTo(this);
+        }
     }
 }
