@@ -58,7 +58,7 @@ ext {
     siteUrl = 'https://github.com/jrizani/JRMapView'
     gitUrl = 'https://github.com/jrizani/JRMapView.git'
 
-    libraryVersion = '1.0.0'
+    libraryVersion = '1.0.1'
 
     developerId = 'juliannoorrizani'
     developerName = 'Julian Noor Rizani'
