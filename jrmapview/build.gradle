@@ -55,10 +55,10 @@ ext {
 
     libraryDescription = 'Google map view with map type chooser like Google Map App'
 
-    siteUrl = 'https://github.com/jrizani/jrmapview'
-    gitUrl = 'https://github.com/jrizani/jrmapview.git'
+    siteUrl = 'https://github.com/jrizani/JRMapView'
+    gitUrl = 'https://github.com/jrizani/JRMapView.git'
 
-    libraryVersion = '1.0.1'
+    libraryVersion = '1.0.0'
 
     developerId = 'juliannoorrizani'
     developerName = 'Julian Noor Rizani'
