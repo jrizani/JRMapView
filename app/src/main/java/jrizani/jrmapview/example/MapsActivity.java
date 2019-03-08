@@ -62,9 +62,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        mMapView.onMapReady(googleMap);
-
         googleMap.setMyLocationEnabled(true);
+        mMapView.onMapReady(googleMap);
 
         mMapView.setGoogleMapPadding(0, 24, 24, 0);
 
