@@ -1,5 +1,5 @@
 # JRMapView
-[ ![Download](https://api.bintray.com/packages/juliannoorrizani/maven/JRMapView/images/download.svg) ](https://bintray.com/juliannoorrizani/maven/JRMapView/_latestVersion)
+[![](https://jitpack.io/v/jrizani/JRMapView.svg)](https://jitpack.io/#jrizani/JRMapView)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 Google map view with map type chooser like Google Map App
@@ -23,7 +23,7 @@ allprojects {
     repositories {
         ..
         maven {
-            url  "https://dl.bintray.com/juliannoorrizani/maven"
+            url  "https://jitpack.io"
         }
     }
 }
@@ -34,7 +34,7 @@ Implement the dependency to your app-level build.gradle
 ```gradle
 dependencies {
   ..
-  implementation 'jrizani:jrmapview:$version'
+  implementation 'com.github.jrizani:JRMapView:$version'
 }
 ```
 
