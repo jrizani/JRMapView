@@ -1,5 +1,6 @@
 # JRMapView
 [![](https://jitpack.io/v/jrizani/JRMapView.svg)](https://jitpack.io/#jrizani/JRMapView)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-JRMapView-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/7556)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 Google map view with map type chooser like Google Map App
