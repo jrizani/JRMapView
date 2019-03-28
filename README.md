@@ -5,6 +5,8 @@
 
 Google map view with map type chooser like Google Map App
 
+<a href="https://jrizani.github.io/donate-jrmapview.html"><img src="https://github.com/jrizani/jrizani.github.io/raw/master/images/donate_button.png" width="100px"/></a>
+
 #### [View Releases and Changelogs](https://github.com/jrizani/JRMapView/releases)
 <img src="https://github.com/jrizani/JRMapView/raw/master/ss/choose.png" width="200px"/> <img src="https://github.com/jrizani/JRMapView/raw/master/ss/normal.png" width="200px"/> <img src="https://github.com/jrizani/JRMapView/raw/master/ss/satellite.png" width="200px"/> <img src="https://github.com/jrizani/JRMapView/raw/master/ss/terrain.png" width="200px"/> 
 
