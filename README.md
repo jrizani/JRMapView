@@ -3,6 +3,9 @@
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-JRMapView-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/7574)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
+| :warning: **This project is no longer maintained** |
+|---|
+
 Google map view with map type chooser like Google Map App
 
 <a href="https://jrizani.github.io/donate-jrmapview.html"><img src="https://github.com/jrizani/jrizani.github.io/raw/master/images/donate_button.png" width="100px"/></a>
